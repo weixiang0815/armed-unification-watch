@@ -1,0 +1,8 @@
+CREATE TABLE users (
+    id RAW(16) PRIMARY KEY,
+    email NVARCHAR2(255) NOT NULL UNIQUE,
+    password_hash NVARCHAR2(255) NOT NULL,
+    role NVARCHAR2(50) NOT NULL,
+    is_active NUMBER(1) DEFAULT 1,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

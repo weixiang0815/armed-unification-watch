@@ -1,0 +1,6 @@
+CREATE TABLE tags (
+    id UNIQUEIDENTIFIER PRIMARY KEY,
+    name NVARCHAR(100) NOT NULL,
+    description NVARCHAR(MAX),
+    color NVARCHAR(20)
+);
