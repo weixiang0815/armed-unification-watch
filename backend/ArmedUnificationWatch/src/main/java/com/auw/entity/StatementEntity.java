@@ -22,7 +22,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "statements")
-public class Statement {
+public class StatementEntity {
 
 	@Id
 	@Column(name = "id", columnDefinition = "uniqueidentifier")
@@ -30,7 +30,7 @@ public class Statement {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "individual_id", nullable = false)
-	private Individual individual;
+	private IndividualEntity individual;
 
 	@Column(name = "content", columnDefinition = "nvarchar(max)", nullable = false)
 	private String content;
@@ -63,11 +63,11 @@ public class Statement {
 	private LocalDateTime recordedAt;
 
 	@OneToMany(mappedBy = "statement", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Source> sources = new ArrayList<>();
+	private List<SourceEntity> sources = new ArrayList<>();
 
 	@ManyToMany
 	@JoinTable(name = "statement_tags", joinColumns = @JoinColumn(name = "statement_id"), inverseJoinColumns = @JoinColumn(name = "tag_id"))
-	private Set<Tag> tags = new HashSet<>();
+	private Set<TagEntity> tags = new HashSet<>();
 
 	@PrePersist
 	protected void onCreate() {
@@ -84,11 +84,11 @@ public class Statement {
 		this.id = id;
 	}
 
-	public Individual getIndividual() {
+	public IndividualEntity getIndividual() {
 		return individual;
 	}
 
-	public void setIndividual(Individual individual) {
+	public void setIndividual(IndividualEntity individual) {
 		this.individual = individual;
 	}
 
@@ -172,19 +172,19 @@ public class Statement {
 		this.recordedAt = recordedAt;
 	}
 
-	public List<Source> getSources() {
+	public List<SourceEntity> getSources() {
 		return sources;
 	}
 
-	public void setSources(List<Source> sources) {
+	public void setSources(List<SourceEntity> sources) {
 		this.sources = sources;
 	}
 
-	public Set<Tag> getTags() {
+	public Set<TagEntity> getTags() {
 		return tags;
 	}
 
-	public void setTags(Set<Tag> tags) {
+	public void setTags(Set<TagEntity> tags) {
 		this.tags = tags;
 	}
 

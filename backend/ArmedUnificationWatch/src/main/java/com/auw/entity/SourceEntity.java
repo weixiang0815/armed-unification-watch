@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "sources")
-public class Source {
+public class SourceEntity {
 
 	@Id
 	@Column(name = "id", columnDefinition = "uniqueidentifier")
@@ -22,7 +22,7 @@ public class Source {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "statement_id", nullable = false)
-	private Statement statement;
+	private StatementEntity statement;
 
 	@Column(name = "type", length = 50)
 	private String type;
@@ -32,7 +32,7 @@ public class Source {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "uploaded_by", nullable = false)
-	private User uploadedBy;
+	private UserEntity uploadedBy;
 
 	@Column(name = "uploaded_at")
 	private LocalDateTime uploadedAt;
@@ -52,11 +52,11 @@ public class Source {
 		this.id = id;
 	}
 
-	public Statement getStatement() {
+	public StatementEntity getStatement() {
 		return statement;
 	}
 
-	public void setStatement(Statement statement) {
+	public void setStatement(StatementEntity statement) {
 		this.statement = statement;
 	}
 
@@ -76,11 +76,11 @@ public class Source {
 		this.file_url = file_url;
 	}
 
-	public User getUploadedBy() {
+	public UserEntity getUploadedBy() {
 		return uploadedBy;
 	}
 
-	public void setUploadedBy(User uploadedBy) {
+	public void setUploadedBy(UserEntity uploadedBy) {
 		this.uploadedBy = uploadedBy;
 	}
 

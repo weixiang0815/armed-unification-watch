@@ -16,7 +16,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "individuals")
-public class Individual {
+public class IndividualEntity {
 
 	@Id
 	@Column(name = "id", columnDefinition = "uniqueidentifier")
@@ -50,7 +50,7 @@ public class Individual {
 	private LocalDateTime updatedAt;
 
 	@OneToMany(mappedBy = "individual", cascade = CascadeType.ALL, orphanRemoval = true)
-	List<Statement> statements = new ArrayList<>();
+	List<StatementEntity> statements = new ArrayList<>();
 
 	@PrePersist
 	protected void onCreate() {
@@ -145,11 +145,11 @@ public class Individual {
 		this.updatedAt = updatedAt;
 	}
 
-	public List<Statement> getStatements() {
+	public List<StatementEntity> getStatements() {
 		return statements;
 	}
 
-	public void setStatements(List<Statement> statements) {
+	public void setStatements(List<StatementEntity> statements) {
 		this.statements = statements;
 	}
 

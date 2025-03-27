@@ -13,7 +13,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tags")
-public class Tag {
+public class TagEntity {
 
 	@Id
 	@Column(name = "id", columnDefinition = "uniqueidentifier")
@@ -29,7 +29,7 @@ public class Tag {
 	private String color;
 
 	@ManyToMany(mappedBy = "tags")
-	private Set<Statement> statements = new HashSet<>();
+	private Set<StatementEntity> statements = new HashSet<>();
 
 	@PrePersist
 	protected void onCreate() {
@@ -69,11 +69,11 @@ public class Tag {
 		this.color = color;
 	}
 
-	public Set<Statement> getStatements() {
+	public Set<StatementEntity> getStatements() {
 		return statements;
 	}
 
-	public void setStatements(Set<Statement> statements) {
+	public void setStatements(Set<StatementEntity> statements) {
 		this.statements = statements;
 	}
 

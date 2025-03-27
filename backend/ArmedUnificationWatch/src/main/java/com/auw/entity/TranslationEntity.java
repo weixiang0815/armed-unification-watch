@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "translations")
-public class Translation {
+public class TranslationEntity {
 
 	@Id
 	@Column(name = "id", columnDefinition = "uniqueidentifier")

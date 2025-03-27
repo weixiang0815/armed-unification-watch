@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table
-public class ReviewLog {
+public class ReviewLogEntity {
 
 	@Id
 	@Column(name = "id", columnDefinition = "uniqueidentifier")
@@ -22,11 +22,11 @@ public class ReviewLog {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "statement_id", nullable = false)
-	private Statement statement;
+	private StatementEntity statement;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id", nullable = false)
-	private User user;
+	private UserEntity user;
 
 	@Column(name = "action", length = 100)
 	private String action;
@@ -52,19 +52,19 @@ public class ReviewLog {
 		this.id = id;
 	}
 
-	public Statement getStatement() {
+	public StatementEntity getStatement() {
 		return statement;
 	}
 
-	public void setStatement(Statement statement) {
+	public void setStatement(StatementEntity statement) {
 		this.statement = statement;
 	}
 
-	public User getUser() {
+	public UserEntity getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(UserEntity user) {
 		this.user = user;
 	}
 

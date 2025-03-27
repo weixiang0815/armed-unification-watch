@@ -15,7 +15,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class UserEntity {
 
 	@Id
 	@Column(name = "id", columnDefinition = "uniqueidentifier")
@@ -37,7 +37,7 @@ public class User {
 	private LocalDateTime createdAt;
 
 	@OneToMany(mappedBy = "uploadedBy", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Source> uploadedSources = new ArrayList<>();
+	private List<SourceEntity> uploadedSources = new ArrayList<>();
 
 	@PrePersist
 	protected void onCreate() {
@@ -94,11 +94,11 @@ public class User {
 		this.createdAt = createdAt;
 	}
 
-	public List<Source> getUploadedSources() {
+	public List<SourceEntity> getUploadedSources() {
 		return uploadedSources;
 	}
 
-	public void setUploadedSources(List<Source> uploadedSources) {
+	public void setUploadedSources(List<SourceEntity> uploadedSources) {
 		this.uploadedSources = uploadedSources;
 	}
 
