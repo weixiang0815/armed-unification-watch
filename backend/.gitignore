@@ -1,0 +1,56 @@
+/.metadata/
+
+# Java 編譯
+*.class
+*.log
+
+# Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# Eclipse
+.settings/
+.project
+.classpath
+
+# 作業系統
+.DS_Store
+Thumbs.db
+
+# Spring Boot
+*.iml
+*.war
+*.jar
+
+# IDE 環境
+.idea/
+*.iws
+*.ipr
+
+# 測試報告
+surefire-reports/
+test-output/
+
+# 應用設定檔（若包含敏感資料建議忽略）
+# application.properties
+# application-dev.properties
+# application-prod.properties
+
+# 資料庫暫存或 dump
+*.sql
+*.db
+
+# 日誌檔
+*.log
+logs/
+
+# 本地環境 override 檔（若有）
+application-local.properties
+
+# Mac/Linux 暫存檔
+*.swp
+*~
+
+# Windows 暫存
+ehthumbs.db
+desktop.ini
